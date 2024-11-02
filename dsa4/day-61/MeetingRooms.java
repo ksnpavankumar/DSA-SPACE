@@ -1,3 +1,5 @@
+// Time & space complexity O(N) O(N)
+
 public class MeetingRooms {
     public int solve(int A, int[][] B) { // Function to find the maximum number of overlapping intervals
         int maxVal = 0;
