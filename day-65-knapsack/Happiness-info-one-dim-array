@@ -1,0 +1,46 @@
+Theory: 0/1 Knapsack Problem
+The 0/1 Knapsack Problem is a classic Dynamic Programming (DP) problem where you aim to maximize the value of items in a 
+knapsack without exceeding a given weight capacity. The problem has the 0/1 property, meaning you can either include an
+item entirely in the knapsack or not include it at all.
+
+Time Complexity:
+O(N×C): For N items and capacity 𝐶.
+
+Space Complexity:
+𝑂(𝐶) Using a 1D array to store results for each capacity.
+
+Real-World Applications
+Resource allocation problems.
+Budget management.
+Scheduling with constraints.
+Optimizing happiness or utility given limited resources.
+
+The 0/1 Knapsack Problem teaches optimization principles using constraints and has applications across various fields in computer science, 
+economics, and operations research.
+
+### Approach
+
+We use **Dynamic Programming (DP)** to solve this problem efficiently:
+
+1. **State Definition:**
+   - Let `dp[w]` represent the **maximum value (happiness)** achievable with a knapsack capacity of `w`.
+
+2. **Transition Formula:**
+   - For each item `i`:
+     ```
+     dp[w] = max(dp[w], A[i] + dp[w - B[i]])
+     ```
+     - `dp[w]`: The current maximum value without including item `i`.
+     - `A[i] + dp[w - B[i]]`: The value if item `i` is included.
+
+3. **Initialization:**
+   - `dp[0] = 0`: With zero capacity, no items can be included, so the value is zero.
+   - `dp[w] = 0` for all `w > 0`: Initially, no items are considered.
+
+4. **Iteration:**
+   - Process each item.
+   - Traverse capacities `w` in reverse (from `C` to `B[i]`) to maintain the **0/1 property** (ensures no item is reused).
+
+5. **Result:**
+   - After processing all items, `dp[C]` contains the maximum value achievable for capacity `C`.
+
