@@ -23,6 +23,7 @@ public class CoinChangePermutations {
     }
 
     /*
+    Each rupee from 1-5 : we are forming though A={3,1,4}
     ==================== DRY RUN EXPLANATION ====================
     Inputs:
         k = 5 (target amount)
