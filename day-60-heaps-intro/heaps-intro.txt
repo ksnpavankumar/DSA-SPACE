@@ -1,0 +1,5 @@
+Simple Idea:
+
+n/2−1: Gives the last parent in the heap.
+
+(n−1)/2: Gives the parent of the last node.
