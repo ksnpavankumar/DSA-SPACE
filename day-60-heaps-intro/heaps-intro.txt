@@ -15,3 +15,26 @@ Sorted Order:
 For the array to be sorted, all elements must follow the order of ascending (or descending) value.
 A heap does not maintain this global order; it only ensures local order (parent-child relationships).
 
+CuttingRopes:
+
+Explanation:
+Heap and Tree Analogy:
+
+The Min-Heap is essentially a binary tree where the root node is the smallest.
+Each time we merge two ropes, it's like combining two nodes of the binary tree into one, and the tree needs to be restructured (heapified) to maintain the heap property.
+Algorithm Flow:
+
+We first build the Min-Heap to ensure the smallest elements are at the root.
+We then repeatedly extract the two smallest ropes, calculate their merge cost, and reinsert the combined rope back into the heap.
+This process is repeated until only one rope remains, and we return the total merge cost.
+Example:
+
+The example shows step-by-step how the ropes are merged, with a binary tree-like structure created during the heapifying and merging steps. It uses the Min-Heap property to always pick the smallest ropes to merge first.
+Intuition Block:
+
+The intuition explains the greedy approach behind the algorithm—always merging the smallest ropes first to minimize the total merging cost. This ensures optimality.
+
+
+================
+
+
