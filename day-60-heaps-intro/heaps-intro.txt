@@ -3,3 +3,15 @@ Simple Idea:
 n/2−1: Gives the last parent in the heap.
 
 (n−1)/2: Gives the parent of the last node.
+
+
+Heap Property vs. Sorted Order:
+Heap Property:
+
+In a min-heap, every parent node is smaller than or equal to its children.
+This does not guarantee that the array is sorted; it only ensures that the smallest element is at the root (index 0).
+Sorted Order:
+
+For the array to be sorted, all elements must follow the order of ascending (or descending) value.
+A heap does not maintain this global order; it only ensures local order (parent-child relationships).
+
