@@ -1,0 +1,37 @@
+# Advanced DSA: Heaps and Heap Sort - Companion
+
+## Introduction to Heap Sort
+Heap Sort is a comparison-based sorting technique based on a binary heap data structure. Similar to selection sort, it divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving it to the sorted region. It maintains the property of a heap tree but does so in the order of N log N time.
+
+## Binary Heaps
+### Properties
+- **Complete Binary Tree**: A binary heap is a complete binary tree so that each level of the tree is completely filled except possibly for the last level.
+- **Min Heap / Max Heap**:
+  - **Min Heap**: Roots of parent nodes are less than or equal to those of the children.
+  - **Max Heap**: Roots of parent nodes are greater than or equal to those of the children【4:2†source】.
+
+## Heap Operations
+### Building a Heap
+- To build a heap from an array, you can do this in O(N) time complexity. This involves iterating through the leaf nodes of the binary tree from the middle of the array backward and applying heapify【4:2†source】.
+
+### Heapify Operation
+Heapify is a crucial operation in heap sort. This function ensures that the subtree rooted at a given node maintains the heap property【4:8†source】.
+
+### Extracting Elements in Heap Sort
+1. Convert the given array into a max heap.
+2. Swap the root element of the heap (the maximum element) with the last element of the heap.
+3. Reduce the size of the heap by one and apply heapify on the root of the tree.
+4. Repeat until heap size is greater than 1【4:3†source】.
+
+### Complexity of Heap Sort
+- **Time Complexity**: O(N log N), where N is the number of elements in the heap. This comes from the build heap operation (O(N)) and repeated removal of the largest element followed by heapify (O(log N))【4:3†source】.
+- **Space Complexity**: O(1), as it is an in-place sorting algorithm【4:14†source】.
+
+## Applications of Heaps
+Heaps are typically used for implementing priority queues. A priority queue is an abstract data type that operates similarly to a regular queue, but each element has a certain priority. The higher the priority, the sooner the element is served. Common applications:
+- **Kth Largest Element in a Stream**: Use a Min Heap to track the k largest elements seen so far【4:6†source】【4:17†source】.
+- **Median Streaming**: Maintain two heaps (a max heap for the lower half of numbers and a min heap for the upper half) to dynamically find the median【4:18†source】.
+
+## Conclusion and Key Points
+- Heap sort is not stable but is very efficient in terms of space and time, making it a good choice when stability is not a concern【4:13†source】.
+- The utility of heaps extends beyond sorting, as they are essential for efficient implementations of priority queues and other algorithms like the kth element problem
