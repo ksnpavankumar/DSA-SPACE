@@ -1,0 +1,64 @@
+Inputs with Intuition:
+Input 1:
+Lists to Merge:
+
+List 1: 1 -> 4 -> 5
+List 2: 1 -> 3 -> 4
+List 3: 2 -> 6
+Intuition:
+
+Start with the smallest heads of the three lists: [1, 1, 2].
+Add the smallest 1 to the merged list.
+Replace 1 with its next value 4, so the heap becomes [1, 2, 4].
+Continue this process, always adding the smallest value to the merged list.
+Expected Output:
+1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6
+
+Input 2:
+Lists to Merge:
+
+Empty input list: []
+Intuition:
+
+Since there are no lists, there's nothing to merge.
+The result is an empty list.
+Expected Output:
+Empty list
+
+Input 3:
+Lists to Merge:
+
+List 1: 1 -> 4 -> 5
+Intuition:
+
+There's only one list. No merging is required.
+The merged list is the same as the input list.
+Expected Output:
+1 -> 4 -> 5
+
+Input 4:
+Lists to Merge:
+
+List 1: null
+List 2: null
+List 3: null
+Intuition:
+
+All input lists are null, meaning there's no data to merge.
+The result is an empty list.
+Expected Output:
+Empty list
+
+Input 5:
+Lists to Merge:
+
+List 1: 2 -> 3 -> 6
+List 2: 1 -> 5 -> 7
+List 3: 4 -> 8
+Intuition:
+
+Heap starts with [2, 1, 4].
+Add 1 to the result, and push 5 (next of 1) to the heap.
+Process continues, adding the smallest value, maintaining order.
+Expected Output:
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8
