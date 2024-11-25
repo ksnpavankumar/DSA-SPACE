@@ -1,0 +1,61 @@
+Comprehensive Revision Notes: Software Engineering Class on Algorithms and Data Structures
+Introduction
+This session focused on various algorithmic problems and data structure concepts, primarily targeting revision and reinforcement of knowledge in arrays, heaps, and sliding window techniques. The topics covered are crucial for solving common software engineering problems, especially in the context of Data Structures and Algorithms (DSA). Below are the detailed notes encompassing all the discussed concepts.
+
+1. Sort the Nearly Sorted Array (K-Places Apart)
+Problem Definition
+A nearly sorted array is defined where elements are at most k distances away from their original position. The task is to sort such an array efficiently without using a conventional sorting algorithm that would otherwise take O(n log n) time.
+
+Approach
+Use a Min-Heap to maintain the order of the smallest elements.
+Insert the first k+1 elements into the heap.
+Extract the minimum element from the heap and add it to the sorted result.
+Continue inserting and extracting until the array is exhausted.
+Time Complexity
+The optimized time complexity is O(n log k) due to the use of a heap of size k+1, reducing the sorting workload to only the unsorted portion【4:0†transcript.txt】.
+
+Steps
+Insert the first k+1 elements into the heap.
+For each subsequent element from k+1 to n-1, extract the minimum from the heap and insert the next element.
+Once all elements have been processed, extract the remaining elements from the heap【4:2†transcript.txt】.
+2. Merging K Sorted Arrays
+Problem Definition
+Combine K sorted arrays into a single sorted array efficiently.
+
+Approach
+Utilize a Min-Heap to always have quick access to the smallest remaining element across all arrays.
+Each heap entry should contain the element value, the index of the originating array, and the index of the element within that array【4:17†transcript.txt】.
+Time and Space Complexity
+Time Complexity: O(N log K), where N is the total number of elements across all arrays.
+Space Complexity: O(K), for maintaining the current state of each of the K arrays in the heap【4:15†typed.md】.
+Steps
+Insert the first element of each array into the heap.
+Extract the smallest element from the heap, add it to the result, and insert the next element from the extracted element's array.
+Repeat until all arrays are exhausted【4:16†transcript.txt】【4:17†transcript.txt】.
+3. Minimum Distance Equal Pair
+Problem Definition
+Find the pair of indices (i, j) such that A[i] = A[j] and the absolute difference |i - j| is minimized.
+
+Approach
+Use a Hash Map to track the last seen index of each element.
+As you traverse the array, for each element, calculate the difference between the current index and the last recorded index, updating the minimum distance as necessary【4:5†typed.md】【4:14†transcript.txt】.
+Time Complexity
+Optimized: O(N), using a single pass with hash map operations【4:19†transcript.txt】.
+Steps
+Traverse the array.
+For each element, check if it has been encountered before using a hash map.
+If it has, compute the distance and update the minimum if necessary.
+Update the element's last seen index in the hash map【4:14†transcript.txt】.
+4. Minimum Window Substring
+Problem Definition
+Given a string S and a string of characters T, find the minimum window in S that contains all the characters from T.
+
+Approach
+Use a sliding window technique combined with frequency counts of characters to determine valid substrings.
+Expand the window until a valid substring is found; then, try to contract while maintaining its validity【4:12†transcript.txt】.
+Time Complexity
+Given alphabet size is constant, the complexity is largely linear, O(N + M), where N is the length of S and M is the length of T.
+Steps
+Use two pointers (left and right) to denote the window.
+Expand and contract the window based on character frequency comparisons with T.
+Keep track of the smallest valid window discovered【4:6†transcript.txt】
