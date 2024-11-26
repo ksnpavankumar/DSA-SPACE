@@ -1,0 +1,53 @@
+The Arrays.sort() method is used to sort the items array based on a custom comparator. Here's a breakdown of how it works in this specific context:
+
+Input
+items is a 2D array where each row represents a pair of:
+Expiration time (items[i][0])
+Profit (items[i][1])
+Comparator Logic
+The comparator (a, b) -> Integer.compare(a[0], b[0]) defines how two rows of the items array are compared during sorting:
+a and b are two rows of the items array being compared.
+a[0] and b[0] are the expiration times of the respective rows.
+Integer.compare(a[0], b[0]):
+Returns a negative value if a[0] < b[0].
+Returns 0 if a[0] == b[0].
+Returns a positive value if a[0] > b[0].
+This ensures that the rows in items are sorted in ascending order of their expiration times.
+
+How Arrays.sort Works
+Algorithm: The Arrays.sort method for objects (like the rows in a 2D array) uses a variant of the TimSort algorithm, which is a hybrid sorting algorithm combining merge sort and insertion sort. It is efficient for data that is already partially sorted.
+Steps:
+Iteratively compares pairs of rows in items using the provided comparator.
+Rearranges rows based on the result of the comparison.
+Example
+Suppose A = {3, 1, 2} (expiration times) and B = {50, 20, 30} (profits), then:
+
+Initial items Array:
+
+makefile
+Copy code
+items = {
+    {3, 50},
+    {1, 20},
+    {2, 30}
+}
+Sorting by Expiration Time (items[i][0]):
+
+Compare {3, 50} and {1, 20}:
+Integer.compare(3, 1) > 0 → Swap rows.
+Compare {3, 50} and {2, 30}:
+Integer.compare(3, 2) > 0 → Swap rows.
+Compare {2, 30} and {1, 20}:
+Integer.compare(2, 1) > 0 → No further swaps needed.
+Sorted items Array:
+
+makefile
+Copy code
+items = {
+    {1, 20},
+    {2, 30},
+    {3, 50}
+}
+Key Points
+Sorting is stable for elements with equal expiration times.
+The time complexity of Arrays.sort for objects is O(n log n).
