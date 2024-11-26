@@ -1,0 +1,41 @@
+Comprehensive Revision Notes: Algorithms and Greedy Techniques
+Introduction
+These notes cover the two main algorithmic problems discussed in the class: the candy distribution problem using greedy strategy, and maximizing profits with limited expiration times using priority queues (heaps).
+
+Candy Distribution Problem
+Problem Statement
+Given a list of students with respective marks, each student must receive at least one candy. A student with higher marks than a neighboring student should have more candies than that neighbor. The aim is to distribute candies such that the total number is minimized.
+
+Key Concepts
+Initialization: Each student initially receives one candy.
+Left to Right Traversal:
+For each student i, if marks of i (A[i]) are greater than marks of i-1, then C[i] (candies for student i) should be C[i-1] + 1.
+Right to Left Traversal:
+For each student i, if marks of i are greater than marks of i+1, then C[i] should ensure it has more candies than i+1.
+Thus, adjust if C[i] < C[i+1] + 1, then C[i] = C[i+1] + 1.
+Final Calculation: Sum up all elements in C to get the total minimum candies required【4:6†source】【4:15†source】.
+Example Walkthrough
+For marks [8, 10, 6, 2], the optimal distribution strategy involves adjusting based on both neighbors until all conditions are satisfied【4:3†source】【4:9†source】.
+
+Solution Complexity
+Time Complexity: O(N), where N is the number of students, due to linear passes through the list.
+Space Complexity: O(N), as a separate storage for candy counts is necessary.
+Maximizing Profit with Expiry Constraints
+Problem Statement
+Given items each with a profit and expiry time, determine the maximum profit obtainable by selling items before their expiry under the constraint that only one item can be sold at a time.
+
+Key Concepts
+Greedy Strategy:
+Prioritize selling based on the earliest expiry to maximize available time to sell more items.
+Use of Data Structures: A min-heap helps in efficiently determining the least profitable item to potentially replace if a more profitable item becomes available.
+Step-by-Step Approach:
+Sort items by expiry time.
+Attempt to sell as many items as possible starting from earliest expiry, using a heap to manage and potentially replace items based on profit【4:1†source】【4:13†source】【4:16†source】.
+Example Walkthrough
+In a scenario with items [Profit: 5, Expiry: 1], [Profit: 8, Expiry: 3], the steps involve sorting by expiry, selling items accordingly, and potentially replacing less profitable items with more profitable as long as expiry constraints are met to maximize profitability【4:4†source】【4:17†source】.
+
+Solution Complexity
+Time Complexity: O(N log N), mainly due to the sorting process and heap operations.
+Space Complexity: O(N), for managing the heap and object storage.
+Conclusion
+This lesson illustrated foundational applications of greedy strategies and heap data structures. Using candy distribution as a pedagogical tool simplifies understanding greedy distribution, while real-life inspired inventory management problems demonstrate the power of algorithmic thinking and heap management to handle time and space efficiently
