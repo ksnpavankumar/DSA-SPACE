@@ -1,0 +1,34 @@
+Dynamic Programming: A Comprehensive Guide
+Dynamic programming (DP) is a method for solving complex problems by breaking them down into simpler subproblems. It is typically applied to optimization problems where the optimal solution can be constructed efficiently from optimal solutions to its subproblems.
+
+Key Concepts of Dynamic Programming
+1. Understanding Dynamic Programming:
+Dynamic programming is not just about solving a problem via recursion; it also involves optimizing the recursive solutions. The technique uses two main properties to solve problems:
+
+Optimal Substructure: This means that the problem can be broken down into smaller, simpler subproblems that can be solved independently.
+Overlapping Subproblems: This implies that the space of subproblems must be small, i.e., the solution to a problem should be stored and reused to avoid recomputation, similar to the caching mechanism in computing【4:5†source】.
+2. Types of DP Approaches:
+Top-Down Approach (Memoization): This approach involves solving problems by breaking them down recursively and storing the solutions to subproblems to avoid recomputation. This approach is inherently recursive .
+
+Bottom-Up Approach (Tabulation): It involves an iterative process where solution to all possible subproblems is computed first. This approach effectively uses iteration to compute solutions, often leading to optimization in space complexity .
+
+3. Simple Examples of DP:
+Fibonacci Numbers:
+Understanding Fibonacci numbers through dynamic programming provides insight into both the top-down and bottom-up approaches. The nth Fibonacci can be defined as fib(n) = fib(n-1) + fib(n-2), with base cases of fib(0) = 0 and fib(1) = 1. Here's how it can be implemented:
+
+Brute Force: Using recursive calls directly leads to a time complexity of O(2^n) due to repeated calculations.
+
+Memoization (Top-Down): By storing results of Fibonacci calls already computed, the time complexity is reduced to O(n)【4:18†source】 .
+
+Tabulation (Bottom-Up): This solution iteratively builds from the base cases up to the desired n, reducing space requirements to O(1) if only the last two computed values are stored .
+
+4. Climbing Stairs Problem:
+Calculate the number of distinct ways to reach the n-th stair, where you can take either 1 or 2 steps at a time. This problem is analogous to calculating Fibonacci numbers because:
+
+To reach the nth stair, one can arrive by stepping from the (n-1)th stair or skipping a step from the (n-2)th stair【4:17†source】.
+The relation is defined as ways(n) = ways(n-1) + ways(n-2) with the base cases of ways(1) = 1 and ways(2) = 2【4:16†source】.
+5. Minimum Number of Perfect Squares:
+The challenge here is to express a number n as the sum of the fewest possible perfect squares. If dp[i] represents the minimum number of perfect squares that sum up to i, the recursion can be described as:
+
+dp[i] = min(dp[i - j^2]) + 1 for every j where j^2 <= i【4:10†source】【4:19†source】.
+This iterative approach involves assessing each number up to n and finds the smallest combination of squares that sum to it.
