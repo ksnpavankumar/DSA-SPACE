@@ -1,0 +1,63 @@
+Revision Notes: Class on Dynamic Programming and Combinatorial Mathematics
+Table of Contents:
+Introduction to Matrix Pathfinding
+Optimized Dynamic Programming Approaches
+N-digit Number Sum
+Catalan Numbers
+Binary Search Trees and Catalan Numbers
+Problem Solving Strategies and Base Cases
+Conclusion: Key Takeaways from the Class
+1. Introduction to Matrix Pathfinding
+Problem Definition: Determine the number of ways to travel from the top-left corner to the bottom-right corner of an m x n matrix grid, allowing only movements to the right or downward.
+
+Approach Options:
+
+For any matrix problem, you can solve it in two ways:
+Calculate all possible paths from the start to any cell (i, j).
+Calculate all possible paths from any cell (i, j) to the end【4:0†transcript.txt】.
+Example Discussion: For a 3x3 matrix there are 6 possible paths from (0,0) to (2,2), illustrating combinations of right and down moves【4:9†transcript.txt】.
+
+2. Optimized Dynamic Programming Approaches
+Dynamic Programming for N-digit Numbers
+Problem: Calculate the number of valid n-digit numbers with a digit sum of s.
+
+Approach:
+
+Use a 2D dynamic programming (DP) array dp[i][j] to store the number of valid i-digit numbers that have a sum of j.
+Transition Formula: dp[i][j] = dp[i-1][j-d] for all valid digits d【4:1†transcript.txt】.
+Time Complexity: O(n × s × 10) Space Complexity: O(n × s)【4:2†transcript.txt】.
+
+Catalan Numbers
+Definition: Catalan numbers are a sequence of natural numbers that have important applications in combinatorial mathematics including:
+
+Counting correct combinations of parentheses.
+Counting distinct binary search trees (BSTs) with n nodes.
+Formula: [ C_n = \sum_{i=0}^{n-1} C_i \times C_{n-i-1} ]
+
+Example values: C0 = 1, C1 = 1, C2 = 2, C3 = 5, C4 = 14, C5 = 42【4:11†typed.md】.
+3. Binary Search Trees and Catalan Numbers
+Using Catalan Numbers to count unique Binary Search Trees (BSTs):
+
+Example for n = 3: There are 5 unique BSTs, as determined by the possible combinations of node configurations where every node has a left child smaller, and a right child larger【4:19†transcript.txt】.
+Computation:
+
+The nth Catalan number represents the number of structurally unique BSTs that can be formed with n distinct keys【4:11†typed.md】.
+4. Problem Solving Strategies and Base Cases
+During the class, numerous strategies were discussed for approaching typical DP problems:
+
+Base Case Considerations:
+
+Ensure for a single state setup (like one digit or one move), the results are precomputed.
+Use of base cases in recursive formulas, where either a problem is directly solvable or further recursion is restricted due to exhaustion of permissible states【4:16†transcript.txt】.
+Questions Reviewed:
+
+How to handle special matrix cases, such as blocked cells during pathfinding【4:14†transcript.txt】.
+5. Conclusion: Key Takeaways from the Class
+Dynamic Programming Recognition:
+
+Optimal substructure and overlapping subproblems are indicators of potential DP solutions.
+Space and time efficiency can be achieved through iterative DP rather than recursion【4:13†transcript.txt】【4:17†transcript.txt】.
+Implementation Tips:
+
+Use 2D matrices to efficiently store state information.
+Reduce space complexity by keeping only the current and previous state rows/columns of your solution space in memory
