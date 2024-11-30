@@ -1,0 +1,3 @@
+Top - down approach : Recursive code with Memorization process
+
+Bottom - up appraoch: iterative process which starts with base case.
