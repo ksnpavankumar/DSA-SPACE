@@ -36,7 +36,7 @@ public class PairDifferenceFinder {
             if (difference == targetDifference) {
                 // Found a pair with the target difference
                 count++;
-                // Skip over duplicates of leftValue and rightValue
+                // Skip over duplicates of leftValue and rightValue, as we only take the distinct pairs.
                 while (left < n && numbers[left] == leftValue) left++;
                 while (right < n && numbers[right] == rightValue) right++;
             } else if (difference < targetDifference) {
