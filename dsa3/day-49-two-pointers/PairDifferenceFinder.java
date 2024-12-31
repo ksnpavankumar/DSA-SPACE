@@ -81,4 +81,33 @@ public class PairDifferenceFinder {
      * Output: 4
      * Explanation: The pairs with difference 1 are (1, 2), (2, 3), (3, 4) (handling duplicates).
      */
+
+    public static void main(String[] args) {
+        PairDifferenceFinder finder = new PairDifferenceFinder();
+        
+        // Example 1: Expected output is 3
+        int[] numbers1 = {1, 2, 3, 4, 5};
+        int targetDifference1 = 2;
+        System.out.println("Example 1 result: " + finder.countPairsWithDifference(numbers1, targetDifference1));
+        
+        // Example 2: Expected output is 4
+        int[] numbers2 = {1, 1, 2, 3, 3};
+        int targetDifference2 = 1;
+        System.out.println("Example 2 result: " + finder.countPairsWithDifference(numbers2, targetDifference2));
+        
+        // Example 3: Expected output is 2
+        int[] numbers3 = {1, 3, 5, 7, 9};
+        int targetDifference3 = 2;
+        System.out.println("Example 3 result: " + finder.countPairsWithDifference(numbers3, targetDifference3));
+        
+        // Example 4: Expected output is 3
+        int[] numbers4 = {2, 3, 6, 7, 9};
+        int targetDifference4 = 3;
+        System.out.println("Example 4 result: " + finder.countPairsWithDifference(numbers4, targetDifference4));
+        
+        // Example 5: Expected output is 0 (no pairs with difference 10)
+        int[] numbers5 = {1, 3, 5, 7, 9};
+        int targetDifference5 = 10;
+        System.out.println("Example 5 result: " + finder.countPairsWithDifference(numbers5, targetDifference5));
+    }
 }
