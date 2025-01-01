@@ -102,3 +102,6 @@ public class PairDifferenceCounter {
         System.out.println("Example 4 result: " + counter.countDistinctPairsWithDifference(A4, B4));
     }
 }
+// can code as per below approach.
+// other approach of handling is , add all in a hashmap with key as A[i] and val as cnt, 
+// Now check sum = B+A[i] , check sum in hashmap.
