@@ -1,0 +1,121 @@
+/*
+ * Example Execution for generating permutations of "ABC":
+ *
+ * 1. Initial state:
+ *    - A = ["A", "B", "C"]
+ *    - n = 3 (length of A)
+ *    - marked = [false, false, false]
+ *    - temp = [] (empty temporary list)
+ * 
+ * 2. Start with idx = 0:
+ *    - Try all possible elements for position 0 (choose an element from A):
+ * 
+ * Include "A":
+ * temp = ["A"], idx = 1.
+ * 
+ * Now, move to idx = 1 and try all possible elements for position 1 (choose an element from A):
+ *
+ * Include "B":
+ * temp = ["A", "B"], idx = 2.
+ * 
+ * Now, move to idx = 2 and try all possible elements for position 2 (choose an element from A):
+ *
+ * Include "C":
+ * temp = ["A", "B", "C"] → Add this permutation to the result (res).
+ * 
+ * Backtrack to explore excluding "C":
+ * Exclude "C":
+ * temp = ["A", "B"], idx = 2 → Backtrack.
+ * 
+ * Backtrack to idx = 1 and try other options:
+ * Exclude "B":
+ * temp = ["A"], idx = 1.
+ * 
+ * Try "C":
+ * temp = ["A", "C"], idx = 2.
+ * 
+ * Include "B":
+ * temp = ["A", "C", "B"] → Add this permutation to the result (res).
+ * 
+ * Backtrack to explore excluding "B":
+ * Exclude "B":
+ * temp = ["A", "C"], idx = 2 → Backtrack.
+ * 
+ * Backtrack to idx = 0 and try other options:
+ * Exclude "A":
+ * temp = [], idx = 0.
+ * 
+ * Now, try "B":
+ * temp = ["B"], idx = 1.
+ * 
+ * Include "A":
+ * temp = ["B", "A"], idx = 2.
+ * 
+ * Include "C":
+ * temp = ["B", "A", "C"] → Add this permutation to the result (res).
+ * 
+ * Backtrack to explore excluding "C":
+ * Exclude "C":
+ * temp = ["B", "A"], idx = 2 → Backtrack.
+ * 
+ * Backtrack to idx = 1 and try other options:
+ * Exclude "A":
+ * temp = ["B"], idx = 1.
+ * 
+ * Try "C":
+ * temp = ["B", "C"], idx = 2.
+ * 
+ * Include "A":
+ * temp = ["B", "C", "A"] → Add this permutation to the result (res).
+ * 
+ * Backtrack to explore excluding "A":
+ * Exclude "A":
+ * temp = ["B", "C"], idx = 2 → Backtrack.
+ * 
+ * Backtrack to idx = 0 and try other options:
+ * Exclude "B":
+ * temp = [], idx = 0.
+ * 
+ * Now, try "C":
+ * temp = ["C"], idx = 1.
+ * 
+ * Include "A":
+ * temp = ["C", "A"], idx = 2.
+ * 
+ * Include "B":
+ * temp = ["C", "A", "B"] → Add this permutation to the result (res).
+ * 
+ * Backtrack to explore excluding "B":
+ * Exclude "B":
+ * temp = ["C", "A"], idx = 2 → Backtrack.
+ * 
+ * Backtrack to idx = 1 and try other options:
+ * Exclude "A":
+ * temp = ["C"], idx = 1.
+ * 
+ * Try "B":
+ * temp = ["C", "B"], idx = 2.
+ * 
+ * Include "A":
+ * temp = ["C", "B", "A"] → Add this permutation to the result (res).
+ * 
+ * Backtrack to explore excluding "A":
+ * Exclude "A":
+ * temp = ["C", "B"], idx = 2 → Backtrack.
+ *
+ * Final Permutations Collected:
+ * After all the recursive calls and backtracking, the permutations generated are:
+ * 
+ * ["A", "B", "C"]
+ * ["A", "C", "B"]
+ * ["B", "A", "C"]
+ * ["B", "C", "A"]
+ * ["C", "A", "B"]
+ * ["C", "B", "A"]
+ *
+ * Summary of the Execution Flow:
+ * At each step, the algorithm explores both including and excluding the current element (at index).
+ * Backtracking ensures that the algorithm returns to the previous decision point and tries the other option 
+ * (e.g., excluding an element after including it).
+ * This process continues until all permutations have been generated.
+ */
