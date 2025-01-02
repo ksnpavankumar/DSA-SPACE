@@ -16,14 +16,16 @@ public class SubsetGenerator {
         }
         
         // Include the current element in the subset
-        currentSubset.add(inputList.get(index));
-        findSubsets(inputList, index + 1, result, currentSubset);
+        currentSubset.add(inputList.get(index)); // do 
+        findSubsets(inputList, index + 1, result, currentSubset); // select 
 
         // Backtrack: remove the last added element to explore subsets without it
-        currentSubset.remove(currentSubset.size() - 1);
+        currentSubset.remove(currentSubset.size() - 1); // undo
 
+        // if we add currentSubset.add(inputList.get(index));  here then our code will fail, we are not adding
+        // we are just increasing the index and moving.
         // Exclude the current element and move to the next element
-        findSubsets(inputList, index + 1, result, currentSubset);
+        findSubsets(inputList, index + 1, result, currentSubset); // reject
     }
 
     public static void main(String[] args) {
