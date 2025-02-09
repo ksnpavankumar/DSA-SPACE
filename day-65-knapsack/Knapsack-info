@@ -33,3 +33,24 @@ Backtracking: This method explores all possible combinations of items and is oft
 
 Conclusion
 The knapsack problem is a fundamental problem in computer science that illustrates the challenges of optimization. It has a wide range of applications and serves as a foundation for understanding more complex algorithms and problem-solving techniques.
+
+
+-------
+Time complexity for Fractional KnapSack
+
+The Fractional Knapsack problem is solved using the Greedy Algorithm, which involves sorting items based on their value-to-weight ratio and taking the most valuable fraction first.
+
+Time Complexity Breakdown
+Sorting Items:
+
+We first sort the items based on value/weight ratio in descending order.
+Sorting takes O(n log n) time using an efficient sorting algorithm (e.g., Merge Sort, Quick Sort, or Heap Sort).
+Selecting Items Greedily:
+
+We iterate through the sorted list and add items (or fractions of them) to the knapsack until it's full.
+This step takes O(n) time.
+Overall Time Complexity
+O(n log n) + O(n) = O(n log n)
+The sorting step dominates, so the overall time complexity is O(n log n).
+This makes the Fractional Knapsack problem significantly faster than the 0/1 Knapsack problem, which requires O(nW) time using dynamic programming.
+
