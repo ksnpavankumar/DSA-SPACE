@@ -57,3 +57,25 @@ public class KnapSack {
         }
     }
 }
+
+/*
+Intuition:
+------------
+1. This is a variation of the Fractional Knapsack problem where we want to maximize the total value we can carry.
+2. Since we can take fractional parts of items, we sort items based on value/weight ratio in descending order.
+3. We iterate through the sorted items and add them fully if they fit, otherwise, we take a fraction to fill up the remaining capacity.
+4. This greedy approach ensures we always pick the most valuable (per weight) items first, leading to an optimal solution.
+
+Time Complexity Analysis:
+-------------------------
+1. Creating the list of items: O(N)
+2. Sorting the items based on value-to-weight ratio: O(N log N)
+3. Iterating through the sorted list to fill the knapsack: O(N)
+4. Overall, the total time complexity is: **O(N log N)** (due to sorting being the dominant step)
+
+Space Complexity Analysis:
+---------------------------
+1. We use an extra list to store the item objects: O(N)
+2. The sorting operation is in-place, so no extra sorting space is needed.
+3. Overall, the total space complexity is: **O(N)**
+*/
