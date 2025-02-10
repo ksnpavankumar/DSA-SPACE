@@ -18,8 +18,8 @@ public class KnapsackHappinessTwoDimArray {
         int[][] dp = new int[n + 1][C + 1];
 
         // Iterate through all items (i from 1 to n) and all knapsack capacities (j from 0 to C)
-        for (int i = 1; i <= n; i++) {
-            for (int j = 0; j <= C; j++) {
+        for (int i = 1; i <= n; i++) { // how much the array sieze
+            for (int j = 0; j <= C; j++) { // dp array is created upto max weight.
                 // If the current item's weight is less than or equal to the current capacity,
                 // two options are considered:
                 if (j >= B[i - 1]) {
