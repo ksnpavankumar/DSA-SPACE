@@ -1,5 +1,5 @@
 public class KnapsackHappinessTwoDimArray {
-    
+
     /**
      * This function solves the 0/1 Knapsack problem using Dynamic Programming.
      * It calculates the maximum value (happiness) that can be achieved by selecting 
@@ -18,8 +18,8 @@ public class KnapsackHappinessTwoDimArray {
         int[][] dp = new int[n + 1][C + 1];
 
         // Iterate through all items (i from 1 to n) and all knapsack capacities (j from 0 to C)
-        for (int i = 1; i <= n; i++) { // how much the array sieze
-            for (int j = 0; j <= C; j++) { // dp array is created upto max weight.
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j <= C; j++) {
                 // If the current item's weight is less than or equal to the current capacity,
                 // two options are considered:
                 if (j >= B[i - 1]) {
@@ -64,31 +64,77 @@ public class KnapsackHappinessTwoDimArray {
         int C4 = 5;
         System.out.println("Max Happiness (Test Case 4): " + knapsack.solve(A4, B4, C4));
     }
+
+    /*
+     * Explanation of the approach:
+     *
+     * 1. **Dynamic Programming Array Initialization**:
+     *    - The `dp[i][j]` table stores the maximum value (happiness) that can be achieved by selecting 
+     *      the first `i` items with a knapsack capacity of `j`.
+     *    
+     * 2. **Main Loop**:
+     *    - The outer loop iterates over each item (from 1 to `n`), and the inner loop iterates over 
+     *      each possible knapsack capacity (from 0 to `C`).
+     *    
+     * 3. **Choices for Each Item**:
+     *    - For each item, we consider two possible actions:
+     *      a) **Include the item**: If the item can fit (i.e., its weight is less than or equal to the 
+     *         current capacity), we add its value (`A[i-1]`) to the best value we could have achieved 
+     *         with the remaining capacity (`dp[i-1][j - B[i-1]]`).
+     *      b) **Exclude the item**: We keep the value from the previous row (`dp[i-1][j]`) without 
+     *         including the current item.
+     *      
+     * 4. **Final Solution**:
+     *    - The final result, representing the maximum happiness for `n` items and a knapsack capacity of `C`, 
+     *      is stored in `dp[n][C]`.
+     *    
+     * By the end of the loops, `dp[n][C]` contains the maximum value (happiness) that can be achieved
+     * without exceeding the knapsack's capacity, which is the answer to the problem.
+     *
+     * ######################################################################################
+     *
+     * Tree Diagram Representation for Simple Example:
+     *
+     * Inputs:
+     * - Values (happiness): [60, 100, 120]
+     * - Weights: [10, 20, 30]
+     * - Knapsack Capacity (C): 50
+     *
+     * Tree Diagram:
+     *
+     *                                    (Start) 
+     *                                       |
+     *                             Knapsack Capacity = 50
+     *                                       |
+                      ------------------------------
+                     |                              |
+                Exclude Item 1                Include Item 1 (60)
+                     |                              |
+         Knapsack Capacity = 50              Knapsack Capacity = 40
+                     |                              |
+        ----------------------------        ----------------------------
+       |                            |      |                            |
+Exclude Item 2               Include Item 2  (100 + 60 = 160)   Exclude Item 2
+       |                            |      |                            |
+Knapsack Capacity = 50       Knapsack Capacity = 30   Knapsack Capacity = 40
+       |                            |      |                            |
+ --------------------         --------------------     --------------------
+|                  |        |                  |     |                  |
+Exclude Item 3    Include Item 3  (120 + 60 = 180) Exclude Item 3    Include Item 3 (100 + 120 = 220)
+|                  |        |                  |     |                  |
+Knapsack = 50      Knapsack = 20   Knapsack = 30   Knapsack = 40      Knapsack = 10
+     
+     * Explanation:
+     * - We start with the initial knapsack capacity of 50.
+     * - For each item, we make the decision to either include or exclude the item based on the capacity left.
+     * - We recursively apply the choices for the remaining items until we reach the end.
+     * - The value at each node represents the total happiness value for that combination of included/excluded items.
+     * - The maximum happiness is found by considering all the possible combinations and selecting the one with the highest value.
+     *
+     * Final Answer:
+     * The maximum achievable happiness is **220**, which corresponds to the path where we include all three items.
+     *
+     * This tree diagram represents the decision-making process in the knapsack problem, showing how the
+     * recursive choices of including or excluding items lead to different paths and ultimately the optimal solution.
+     */
 }
-
-/*
- * Explanation of the approach:
-
- * 1. **Dynamic Programming Array Initialization**:
- *    - The `dp[i][j]` table stores the maximum value (happiness) that can be achieved by selecting 
- *      the first `i` items with a knapsack capacity of `j`.
- *    
- * 2. **Main Loop**:
- *    - The outer loop iterates over each item (from 1 to `n`), and the inner loop iterates over 
- *      each possible knapsack capacity (from 0 to `C`).
- *    
- * 3. **Choices for Each Item**:
- *    - For each item, we consider two possible actions:
- *      a) **Include the item**: If the item can fit (i.e., its weight is less than or equal to the 
- *         current capacity), we add its value (`A[i-1]`) to the best value we could have achieved 
- *         with the remaining capacity (`dp[i-1][j - B[i-1]]`).
- *      b) **Exclude the item**: We keep the value from the previous row (`dp[i-1][j]`) without 
- *         including the current item.
- *      
- * 4. **Final Solution**:
- *    - The final result, representing the maximum happiness for `n` items and a knapsack capacity of `C`, 
- *      is stored in `dp[n][C]`.
- *    
- * By the end of the loops, `dp[n][C]` contains the maximum value (happiness) that can be achieved
- * without exceeding the knapsack's capacity, which is the answer to the problem.
- */
